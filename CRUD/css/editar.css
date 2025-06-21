@@ -1,0 +1,107 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #1C1C1E;
+    color: #F2F2F7;
+    padding: 30px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Navbar estilo Apple */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #1C1C1E;
+    padding: 12px 20px;
+    border-bottom: 1px solid #3A3A3C;
+    margin-bottom: 10px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.navbar h3 {
+    font-size: 1.3rem;
+    color: #F2F2F7;
+    font-weight: 600;
+}
+
+/* Botão Voltar estilo Apple */
+.botao-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: transparent;
+    color: #0A84FF;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 12px;
+    transition: background-color 0.25s, opacity 0.25s;
+}
+
+.botao-voltar:hover {
+    background-color: rgba(10, 132, 255, 0.12);
+    opacity: 0.85;
+}
+
+.botao-voltar::before {
+    content: '‹';
+    font-size: 1.2rem;
+}
+
+/* Títulos e mensagens */
+h3 {
+    text-align: center;
+    color: #F2F2F7;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+h4 {
+    color: #30D158;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.erro {
+    color: #FF453A;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsivo */
+@media screen and (max-width: 540px) {
+    body {
+        padding: 20px;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+}

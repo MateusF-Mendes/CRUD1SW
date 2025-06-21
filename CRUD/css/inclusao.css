@@ -1,0 +1,174 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1C1C1E;
+  color: #F2F2F7;
+  padding: 30px;
+}
+
+/* Navbar estilo Apple */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #1C1C1E;
+  padding: 12px 20px;
+  border-bottom: 1px solid #3A3A3C;
+  margin-bottom: 24px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.navbar h3 {
+  font-size: 1.3rem;
+  color: #F2F2F7;
+  font-weight: 600;
+}
+
+/* Botão Voltar estilo Apple */
+.botao-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  color: #0A84FF;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 12px;
+  transition: background-color 0.25s, opacity 0.25s;
+}
+
+.botao-voltar:hover {
+  background-color: rgba(10, 132, 255, 0.12);
+  opacity: 0.85;
+}
+
+.botao-voltar::before {
+  content: '‹';
+  font-size: 1.2rem;
+}
+
+/* Container do formulário */
+.container {
+  max-width: 550px;
+  margin: auto;
+  background-color: #2C2C2E;
+  padding: 35px 40px;
+  border-radius: 16px;
+  border: 1px solid #3A3A3C;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Campo label + input */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campo label {
+  font-weight: 500;
+  color: #F2F2F7;
+  font-size: 0.95rem;
+}
+
+.campo input,
+.campo textarea {
+  padding: 12px 14px;
+  border: 1px solid #3A3A3C;
+  border-radius: 12px;
+  background-color: #1C1C1E;
+  color: #F2F2F7;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  resize: none;
+}
+
+/* Foco */
+.campo input:focus,
+.campo textarea:focus {
+  border-color: #0A84FF;
+  outline: none;
+}
+
+/* Corrigir ícone do calendário */
+.campo input[type="date"]::-webkit-calendar-picker-indicator,
+.campo input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* Área dos botões */
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.botoes input,
+.botoes button {
+  padding: 12px 2px;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  color: #F2F2F7;
+  cursor: pointer;
+  margin-top: 7px;
+  margin-bottom: 0px;
+  transition: transform 0.2s ease, background-color 0.3s, opacity 0.3s;
+  min-width: 140px;
+  max-width: 200px;
+  flex: 1 1 140px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+}
+
+/* Cores dos botões */
+.botoes input[type="submit"] {
+  background-color: #0A84FF;
+}
+
+.botoes input[type="reset"] {
+  background-color: #636366;
+}
+
+.botoes button {
+  background-color: #30D158;
+}
+
+/* Hover dos botões */
+.botoes input:hover,
+.botoes button:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+/* Responsivo */
+@media screen and (max-width: 540px) {
+  .container {
+    padding: 25px;
+  }
+
+  .botoes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .botoes input,
+  .botoes button {
+    width: 100%;
+    max-width: none;
+  }
+}

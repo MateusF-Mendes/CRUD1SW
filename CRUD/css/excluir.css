@@ -1,0 +1,126 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #1C1C1E; /* Fundo escuro */
+    color: #F2F2F7; /* Texto claro */
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container central */
+.container {
+    background-color: #2C2C2E; /* Fundo cinza claro */
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #3A3A3C; /* Bordas suaves */
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Animação suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+h2 {
+    color: #FF453A; /* Vermelho Apple */
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #636366; /* Cor de texto suave */
+}
+
+/* Imagem do produto */
+.produto-imagem {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.produto-imagem img {
+    width: 180px; /* Largura ajustada para imagem padrão */
+    height: auto;
+    border-radius: 16px; /* Bordas arredondadas */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.produto-imagem img:hover {
+    transform: scale(1.05); /* Efeito de zoom suave */
+}
+
+/* Botões */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px; /* Bordas bem arredondadas */
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    color: #FFFFFF;
+    width: 100%; /* Ocupa toda a largura do botão */
+}
+
+/* Confirmar (vermelho Apple) */
+.btn-confirm {
+    background-color: #FF453A;
+}
+
+.btn-confirm:hover {
+    background-color: #CC2E24;
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Cancelar (cinza Apple) */
+.btn-cancel {
+    background-color: #636366;
+}
+
+.btn-cancel:hover {
+    background-color: #48484A;
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .produto-imagem img {
+        width: 150px; /* Ajusta a largura da imagem em dispositivos móveis */
+    }
+
+    .btn {
+        width: 100%; /* Botões com largura total */
+    }
+}
