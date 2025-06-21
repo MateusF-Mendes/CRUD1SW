@@ -17,8 +17,11 @@ Trabalho consta em:
 3. Usar html, css, js(se necessario), php(obrigatóriamente) e sql(obrigatório);
 4. Datas devem ser formatadas;
 5. Itens exluidos devem automaticamente ser excluidos da pasta e do banco;
-6. Exibir tambem na tabela o ID do item baseado na tabela sql, em ordem de itens adicionados, ID unico e exclusivo.
+6. Exibir tambem na tabela o ID do item baseado na tabela sql, em ordem de itens adicionados, ID unico e exclusivo;
+7. Usar caso ache necessario frameworks css como bootsptrap ou semelhantes.
 
+   Nota: O trabalho inteiro esta comentado na medida do possivel para que qualquer um entenda o conceito das funções, estilos e etc.
+   
 Alunos: Mateus Felipe M. C. & Lucca Cesár V. A.
 
 Sorocaba - SP, Brasil. 2025
