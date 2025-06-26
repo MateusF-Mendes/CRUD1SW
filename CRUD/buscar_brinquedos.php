@@ -30,6 +30,7 @@ if (mysqli_num_rows($result) > 0) {
 				<th>Código</th>
 				<th>Modelo</th>
 				<th>Marca</th>
+				<th>Valor (R$)</th>
 				<th>Faixa Etária</th>
 				<th>Data Cadastro</th>
 				<th>Imagem</th>
@@ -39,12 +40,14 @@ if (mysqli_num_rows($result) > 0) {
 	while ($dados = mysqli_fetch_assoc($result)) {
 		$id = base64_encode($dados["id"]);
 		$imagem = empty($dados["foto"]) ? "semimagem.png" : $dados["foto"];
+		$valor = number_format($dados["valor"], 2, ',', '.'); // <-- Formatando o valor em R$
 
 		echo "<tr>
 				<td>{$dados['id']}</td>
 				<td>{$dados['codigo']}</td>
 				<td>{$dados['modelo']}</td>
 				<td>{$dados['marca']}</td>
+				<td>R$ {$valor}</td>
 				<td>{$dados['faixaetaria']} anos</td>
 				<td>" . date('d/m/Y H:i', strtotime($dados['datacad'])) . "</td>
 				<td><img class='imagem' src='imagens/$imagem' alt='Imagem'></td>
