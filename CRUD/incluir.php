@@ -22,9 +22,17 @@ try {
 	$marca = $_POST["marca"];
 	$descricao = $_POST["descricao"];
 	$faixaetaria = $_POST["faixaetaria"];
+
+	// Tratamento do campo valor (converte "R$ 1.234,56" para 1234.56)
+	$valorBruto = $_POST["valor"];
+	$valorLimpo = str_replace(['R$', '.', ','], ['', '', '.'], $valorBruto);
+	$valor = floatval(trim($valorLimpo));
+
+	// Data atual
 	date_default_timezone_set('America/Sao_Paulo');
 	$datacad = date('Y-m-d H:i:s');
 
+	// Processamento da imagem
 	$target_dir = "imagens/";
 	$arquivo = basename($_FILES["foto"]["name"]);
 	$arquivo = preg_replace("/[^a-zA-Z0-9.]/", "_", $arquivo);
@@ -33,7 +41,6 @@ try {
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-	// Verificação do tipo de imagem
 	if (!empty($_FILES["foto"]["tmp_name"])) {
 		$check = getimagesize($_FILES["foto"]["tmp_name"]);
 		if ($check === false) {
@@ -41,25 +48,21 @@ try {
 			$uploadOk = 0;
 		}
 
-		// Verificar se o arquivo já existe
 		if (file_exists($target_file)) {
 			echo "<p class='erro'>O arquivo já existe.</p>";
 			$uploadOk = 0;
 		}
 
-		// Verificar o tamanho do arquivo (5MB)
 		if ($_FILES["foto"]["size"] > 5000000) {
 			echo "<p class='erro'>O arquivo é muito grande. Tamanho máximo permitido: 5MB.</p>";
 			$uploadOk = 0;
 		}
 
-		// Aceitar apenas .jpg, .png e .webp
 		if (!in_array($imageFileType, ["jpg", "jpeg", "png", "webp"])) {
 			echo "<p class='erro'>Apenas arquivos JPG, JPEG, PNG e WEBP são permitidos.</p>";
 			$uploadOk = 0;
 		}
 
-		// Se a imagem for válida, move para o diretório
 		if ($uploadOk) {
 			if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
 				echo "<p class='sucesso'>Imagem enviada com sucesso.</p>";
@@ -74,9 +77,11 @@ try {
 		$arquivo = "";
 	}
 
-	// Inserção no banco de dados
-	$sql = "INSERT INTO brinquedos (codigo, modelo, marca, descricao, faixaetaria, datacad, foto)
-			VALUES ($codigo, '$modelo', '$marca', '$descricao', $faixaetaria, '$datacad', '$arquivo')";
+	// Inserção no banco de dados (com valor incluído)
+	$sql = "INSERT INTO brinquedos 
+		(codigo, modelo, marca, descricao, valor, faixaetaria, datacad, foto)
+		VALUES 
+		($codigo, '$modelo', '$marca', '$descricao', $valor, $faixaetaria, '$datacad', '$arquivo')";
 
 	if (mysqli_query($conexao, $sql)) {
 		echo "<h3 class='sucesso'>Registro cadastrado com sucesso!</h3>";
